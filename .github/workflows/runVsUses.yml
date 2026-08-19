@@ -1,0 +1,26 @@
+name: runVsUses
+
+on:
+  workflow_dispatch:
+
+jobs:
+  primero:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar directorio actual
+        run: pwd
+
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Mostrar archivos
+        run: ls
+
+  segundo:
+    needs: primero
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Segundo job
+        run: echo "Este es el segundo job"
