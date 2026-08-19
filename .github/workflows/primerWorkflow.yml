@@ -13,6 +13,7 @@ jobs:
         run: echo "Este es el primer job"
 
   segundo:
+    needs: primero
     runs-on: ubuntu-latest
 
     steps:
