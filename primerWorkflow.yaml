@@ -1,0 +1,18 @@
+name: Mi primer workflow
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Saludar
+        run: echo "Hola GitHub Actions"
+
+      - name: Mostrar información
+        run: |
+          echo "Estoy aprendiendo GitHub Actions"
+          echo "Este es mi primer workflow"
