@@ -1,0 +1,54 @@
+# Nombre que tendrá nuestro workflow en GitHub Actions
+name: ExplicacionRunVsUses
+
+# Define cuándo se puede ejecutar el workflow
+on:
+
+  # Permite ejecutarlo manualmente desde:
+  # GitHub → Actions → Run workflow
+  workflow_dispatch:
+
+
+# Aquí empiezan los trabajos (jobs) del workflow
+jobs:
+
+  # Nombre del job
+  primero:
+
+    # Máquina/runner donde se ejecutará este job
+    # ubuntu-latest = máquina Linux proporcionada por GitHub
+    runs-on: ubuntu-latest
+
+    # Aquí empiezan los pasos (steps) del job
+    steps:
+    
+      # Nombre descriptivo del step
+      - name: Descargar repositorio
+
+        # "uses" sirve para utilizar una Action existente
+        # actions/checkout = Action oficial de GitHub
+        # @v4 = versión de la Action que queremos utilizar
+        uses: actions/checkout@v4
+        
+      - name: Configurar Python 3.12
+        # Utilizamos una Action existente para instalar/configurar Python
+        uses: actions/setup-python@v5
+        # "with" sirve para pasar parámetros/configuración a la Action
+        with:
+          # Le indicamos a la Action qué versión de Python queremos
+          python-version: '3.12'
+
+      - name: Mostrar la versión de Python
+        # "run" sirve para ejecutar directamente un comando
+        # en el runner
+        run: python --version
+
+      - name: Mostrar el contenido del directorio
+
+        # "run" ejecuta un comando de Linux
+        # ls = muestra archivos y carpetas
+        # -la = muestra también archivos ocultos y más información
+        run: ls -la
+
+
+        
