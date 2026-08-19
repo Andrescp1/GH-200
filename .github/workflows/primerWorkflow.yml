@@ -13,7 +13,7 @@ jobs:
         run: echo "Este es el primer job"
 
   segundo:
-    needs: primero
+    needs: primero #significa que para poder ejecutar este segundo job, es necesario que primero se ejecute el primero, depende el primero para poder ejecutarse
     runs-on: ubuntu-latest
 
     steps:
