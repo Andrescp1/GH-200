@@ -5,14 +5,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  hello:
+  primero:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Saludar
-        run: echo "Hola GitHub Actions"
+      - name: Primer job
+        run: echo "Este es el primer job"
 
-      - name: Mostrar información
-        run: |
-          echo "Estoy aprendiendo GitHub Actions"
-          echo "Este es mi primer workflow"
+  segundo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Segundo job
+        run: echo "Este es el segundo job"
