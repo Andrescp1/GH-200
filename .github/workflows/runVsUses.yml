@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Mostrar directorio actual
-        run: pwd
+        run: pwd # Ejecuta un comando directamente en el runner.
 
       - name: Descargar repositorio
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # uses sirve para utilizar una Action que ya existe.
 
       - name: Mostrar archivos
         run: ls
